@@ -1,4 +1,3 @@
-import string
 
 sentence = "List comprehensions are the greatest!"
 with open("water_temp") as f:
@@ -44,16 +43,31 @@ def float_water_temp_list(water_temp_list):
 
 def fahrenheit_temp_list(float_water_temp):
     fahrenheit_temp = [int((i * 9/5 + 32)) for i in float_water_temp]
-    print(fahrenheit_temp)
+    return (fahrenheit_temp)
 
 
-keys = []
+# keys = []
 
-first_line = [row.split(",") for row in first_line]
+# first_line = [row.split(",") for row in first_line]
 
-for i in first_line:
-    for index, header in enumerate(i):
-        keys.append(header)
+# for i in first_line:
+    # for index, header in enumerate(i):
+        # keys.append(header)
 
-print(keys)
+date_wave_height = {}
+date = []
+wave_height = []
 
+for i in organized_data:
+    date.append(i[5])
+    wave_height.append(i[1])
+
+date_wave_height = {date: wave_height[index] for index, date in enumerate(date)}
+
+for keys, values in date_wave_height:
+    sum(values)
+
+print(date_wave_height)
+print(water_temp_list(organized_data))
+print(float_water_temp_list(water_temp_list(organized_data)))
+print(fahrenheit_temp_list(float_water_temp_list(water_temp_list(organized_data))))
