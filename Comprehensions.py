@@ -67,7 +67,6 @@ for d in date:
 
 
 wave_average = {float(wh): [dow] for wh, dow in zip_longest(wave_height, days_of_week)}
-print(wave_average)
 
 Sunday = []
 Monday = []
@@ -100,9 +99,6 @@ day_wave_avg = (sum(Monday) / len(Monday), sum(Tuesday) / len(Tuesday), sum(Wedn
 
 day_wave_avg_dict = {day: float(day_wave_avg[index]) for index, day in enumerate(days)}
 
-print(day_wave_avg_dict)
-
-
 
 def get_wave_heights():
     date_wave_height = {date: float(wave_height[index]) for index, date in enumerate(date)}
@@ -127,6 +123,8 @@ homework1_average = (Gale + Jordan + Peyton + River) / 4
 
 grades = [v["Homework 1"] for k, v in grades.items()]
 
+print(remove_vowels_comp(sentence))
+print(day_wave_avg_dict)
 print(homework1_average)
 print(water_temp_list(organized_data))
 print(float_water_temp_list(water_temp_list(organized_data)))
