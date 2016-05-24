@@ -1,3 +1,6 @@
+import datetime
+from itertools import zip_longest
+
 sentence = "List comprehensions are the greatest!"
 
 with open("water_temp") as f:
@@ -40,30 +43,71 @@ def float_water_temp_list(water_temp_list):
     return float_water_temp
 
 
-def fahrenheit_temp_list(float_water_temp):
-    fahrenheit_temp = [int((i * 9/5 + 32)) for i in float_water_temp]
+def fahrenheit_temp_list(water_temp_list):
+    fahrenheit_temp = [int((i * 9/5 + 32)) for i in water_temp_list]
     return (fahrenheit_temp)
 
 
-# keys = []
-
-# first_line = [row.split(",") for row in first_line]
-
-# for i in first_line:
-    # for index, header in enumerate(i):
-        # keys.append(header)
-
 date = []
+days = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 wave_height = []
+days_of_week = []
 
 for i in organized_data:
     date.append(i[5])
     wave_height.append(i[1])
 
-def get_wave_heights(wave_height):
-    date_wave_height = {date: float(wave_height[index]) for index, date in enumerate(date)}
-    return date_wave_height
 
+for d in date:
+    date_list = [int(day) for day in (d.split("-"))]
+    date_obj = datetime.date(*date_list)
+    day_of_week = date_obj.weekday()
+    dow_list = (days[day_of_week])
+    days_of_week.append(dow_list)
+
+
+wave_average = {float(wh): [dow] for wh, dow in zip_longest(wave_height, days_of_week)}
+print(wave_average)
+
+Sunday = []
+Monday = []
+Tuesday = []
+Wednesday = []
+Thursday = []
+Friday = []
+Saturday = []
+
+for key, value in wave_average.items():
+    for i in value:
+        if i == "Sunday":
+            Sunday.append(key)
+        if i == "Monday":
+            Monday.append(key)
+        if i == "Tuesday":
+            Tuesday.append(key)
+        if i == "Wednesday":
+            Wednesday.append(key)
+        if i == "Thursday":
+            Thursday.append(key)
+        if i == "Friday":
+            Friday.append(key)
+        if i == "Saturday":
+            Saturday.append(key)
+
+Sunday = sum(Sunday) / len(Sunday)
+Monday = sum(Monday) / len(Monday)
+Tuesday = sum(Tuesday) / len(Tuesday)
+Wednesday = sum(Wednesday) / len(Wednesday)
+Thursday = sum(Thursday) / len(Thursday)
+Friday = sum(Friday) / len(Friday)
+Saturday = sum(Saturday) / len(Saturday)
+
+
+
+def get_wave_heights():
+    date_wave_height = {date: float(wave_height[index]) for index, date in enumerate(date)}
+
+    return date_wave_height
 
 
 #for keys, values in date_wave_height.items():
@@ -81,8 +125,12 @@ River = (grades.get('River', {}).get('Homework 1'))
 
 homework1_average = (Gale + Jordan + Peyton + River) / 4
 
+grades = [v["Homework 1"] for k, v in grades.items()]
+
 print(homework1_average)
 print(water_temp_list(organized_data))
 print(float_water_temp_list(water_temp_list(organized_data)))
 print(fahrenheit_temp_list(float_water_temp_list(water_temp_list(organized_data))))
-print(get_wave_heights(wave_height))
+print(get_wave_heights())
+
+
