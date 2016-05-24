@@ -1,5 +1,5 @@
-
 sentence = "List comprehensions are the greatest!"
+
 with open("water_temp") as f:
     first_line = [f.readline().replace("\n", "")]
 opened_file = open("water_temp")
@@ -27,7 +27,6 @@ def remove_vowels_comp(b):
 data_set = data.replace(" ", "").split()
 
 organized_data = [row.split(",") for row in data_set]
-print(organized_data)
 
 
 def water_temp_list(organized_data):
@@ -54,7 +53,6 @@ def fahrenheit_temp_list(float_water_temp):
     # for index, header in enumerate(i):
         # keys.append(header)
 
-date_wave_height = {}
 date = []
 wave_height = []
 
@@ -62,11 +60,24 @@ for i in organized_data:
     date.append(i[5])
     wave_height.append(i[1])
 
-date_wave_height = {date: wave_height[index] for index, date in enumerate(date)}
+date_wave_height = {date: float(wave_height[index]) for index, date in enumerate(date)}
 
-for keys, values in date_wave_height:
-    sum(values)
+#for keys, values in date_wave_height.items():
+    #print(sum(values))
 
+grades = {'Gale': {'Homework 1': 88, 'Homework 2': 76},
+          'Jordan': {'Homework 1': 92, 'Homework 2': 87},
+          'Peyton': {'Homework 1': 84, 'Homework 2': 77},
+          'River': {'Homework 1': 85, 'Homework 2': 91}}
+
+Gale = (grades.get('Gale', {}).get('Homework 1'))
+Jordan = (grades.get('Jordan', {}).get('Homework 1'))
+Peyton = (grades.get('Peyton', {}).get('Homework 1'))
+River = (grades.get('River', {}).get('Homework 1'))
+
+total = (Gale + Jordan + Peyton + River) / 4
+
+print(total)
 print(date_wave_height)
 print(water_temp_list(organized_data))
 print(float_water_temp_list(water_temp_list(organized_data)))
