@@ -94,13 +94,13 @@ for key, value in wave_average.items():
         if i == "Saturday":
             Saturday.append(key)
 
-Sunday = sum(Sunday) / len(Sunday)
-Monday = sum(Monday) / len(Monday)
-Tuesday = sum(Tuesday) / len(Tuesday)
-Wednesday = sum(Wednesday) / len(Wednesday)
-Thursday = sum(Thursday) / len(Thursday)
-Friday = sum(Friday) / len(Friday)
-Saturday = sum(Saturday) / len(Saturday)
+day_wave_avg = (sum(Monday) / len(Monday), sum(Tuesday) / len(Tuesday), sum(Wednesday) / len(Wednesday),\
+      sum(Thursday) / len(Thursday), sum(Friday) / len(Friday),
+      sum(Saturday) / len(Saturday), sum(Sunday) / len(Sunday))
+
+day_wave_avg_dict = {day: float(day_wave_avg[index]) for index, day in enumerate(days)}
+
+print(day_wave_avg_dict)
 
 
 
