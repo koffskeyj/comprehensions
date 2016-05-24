@@ -60,7 +60,11 @@ for i in organized_data:
     date.append(i[5])
     wave_height.append(i[1])
 
-date_wave_height = {date: float(wave_height[index]) for index, date in enumerate(date)}
+def get_wave_heights(wave_height):
+    date_wave_height = {date: float(wave_height[index]) for index, date in enumerate(date)}
+    return date_wave_height
+
+
 
 #for keys, values in date_wave_height.items():
     #print(sum(values))
@@ -75,10 +79,10 @@ Jordan = (grades.get('Jordan', {}).get('Homework 1'))
 Peyton = (grades.get('Peyton', {}).get('Homework 1'))
 River = (grades.get('River', {}).get('Homework 1'))
 
-total = (Gale + Jordan + Peyton + River) / 4
+homework1_average = (Gale + Jordan + Peyton + River) / 4
 
-print(total)
-print(date_wave_height)
+print(homework1_average)
 print(water_temp_list(organized_data))
 print(float_water_temp_list(water_temp_list(organized_data)))
 print(fahrenheit_temp_list(float_water_temp_list(water_temp_list(organized_data))))
+print(get_wave_heights(wave_height))
