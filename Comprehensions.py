@@ -97,7 +97,10 @@ day_wave_avg = (sum(Monday) / len(Monday), sum(Tuesday) / len(Tuesday), sum(Wedn
       sum(Thursday) / len(Thursday), sum(Friday) / len(Friday),
       sum(Saturday) / len(Saturday), sum(Sunday) / len(Sunday))
 
-day_wave_avg_dict = {day: float(day_wave_avg[index]) for index, day in enumerate(days)}
+def get_wave_average():
+    day_wave_avg_dict = {day: float(day_wave_avg[index]) for index, day in enumerate(days)}
+
+    return day_wave_avg_dict
 
 
 def get_wave_heights():
@@ -124,11 +127,11 @@ homework1_average = (Gale + Jordan + Peyton + River) / 4
 grades = [v["Homework 1"] for k, v in grades.items()]
 
 print(remove_vowels_comp(sentence))
-print(day_wave_avg_dict)
+print(get_wave_heights())
 print(homework1_average)
 print(water_temp_list(organized_data))
 print(float_water_temp_list(water_temp_list(organized_data)))
 print(fahrenheit_temp_list(float_water_temp_list(water_temp_list(organized_data))))
-print(get_wave_heights())
+print(get_wave_average())
 
 
