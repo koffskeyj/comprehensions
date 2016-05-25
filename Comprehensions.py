@@ -32,9 +32,9 @@ data_set = data.replace(" ", "").split()
 organized_data = [row.split(",") for row in data_set]
 
 
-def water_temp_list(organized_data):
-    water_temp = [(i[4]) for i in organized_data]
-    water_temp_list = (water_temp[1:])
+def get_water_temp_list(organized_data):
+    water_temp_list = [(i[4]) for i in organized_data]
+    water_temp_list = (water_temp_list[1:])
     return water_temp_list
 
 
@@ -129,9 +129,9 @@ grades = [v["Homework 1"] for k, v in grades.items()]
 print(remove_vowels_comp(sentence))
 print(get_wave_heights())
 print(homework1_average)
-print(water_temp_list(organized_data))
-print(float_water_temp_list(water_temp_list(organized_data)))
-print(fahrenheit_temp_list(float_water_temp_list(water_temp_list(organized_data))))
+print(get_water_temp_list(organized_data))
+print(float_water_temp_list(get_water_temp_list(organized_data)))
+print(fahrenheit_temp_list(float_water_temp_list(get_water_temp_list(organized_data))))
 print(get_wave_average())
 
 
