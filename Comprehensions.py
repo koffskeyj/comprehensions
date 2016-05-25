@@ -98,9 +98,9 @@ day_wave_avg = (sum(Monday) / len(Monday), sum(Tuesday) / len(Tuesday), sum(Wedn
       sum(Saturday) / len(Saturday), sum(Sunday) / len(Sunday))
 
 def get_wave_average():
-    day_wave_avg_dict = {day: float(day_wave_avg[index]) for index, day in enumerate(days)}
+    day_wave_avg_comp = {day: float(day_wave_avg[index]) for index, day in enumerate(days)}
 
-    return day_wave_avg_dict
+    return day_wave_avg_comp
 
 
 def get_wave_heights():
